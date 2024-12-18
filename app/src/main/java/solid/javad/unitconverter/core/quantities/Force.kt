@@ -1,9 +1,10 @@
 package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
+import solid.javad.unitconverter.core.Quantity
 
 @Serializable
-class Force(val newton: Double) {
+class Force(val newton: Double): Quantity {
     val kiloNewton = newton / 1000
 
     val dyne = newton * 100000

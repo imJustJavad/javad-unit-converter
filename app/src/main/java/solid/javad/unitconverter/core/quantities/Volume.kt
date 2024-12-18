@@ -1,10 +1,11 @@
 package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
+import solid.javad.unitconverter.core.Quantity
 import kotlin.math.pow
 
 @Serializable
-class Volume(val qMetre: Double) {
+class Volume(val qMetre: Double): Quantity {
     val qMillimetre = qMetre * 1000.0.pow(3.0)
     val qCentimetre = qMetre * 100.0.pow(3.0)
     val qDecimetre = qMetre * 100.0.pow(3.0)

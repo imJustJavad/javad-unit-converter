@@ -1,9 +1,10 @@
 package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
+import solid.javad.unitconverter.core.Quantity
 
 @Serializable
-class Energy(val joule: Double) {
+class Energy(val joule: Double): Quantity {
     val kiloJoule = joule / 1000
     val calorie = joule / 4.184
     val kilocalorie = calorie * 1000

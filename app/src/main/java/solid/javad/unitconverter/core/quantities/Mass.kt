@@ -1,9 +1,10 @@
 package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
+import solid.javad.unitconverter.core.Quantity
 
 @Serializable
-class Mass(val gram: Double) {
+class Mass(val gram: Double): Quantity {
     val milliGram = gram * 1000
     val kiloGram = gram / 1000
     val tonne = kiloGram / 1000

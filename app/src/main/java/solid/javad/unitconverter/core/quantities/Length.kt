@@ -1,9 +1,10 @@
 package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
+import solid.javad.unitconverter.core.Quantity
 
 @Serializable
-class Length(val metre: Double) {
+class Length(val metre: Double): Quantity {
     val millimetre = metre * 1000
     val centimetre = metre * 100
     val decimetre = metre * 100
