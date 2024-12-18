@@ -1,5 +1,8 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Energy(val joule: Double) {
     val kiloJoule = joule / 1000
     val calorie = joule / 4.184

@@ -1,5 +1,8 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Force(val newton: Double) {
     val kiloNewton = newton / 1000
 

@@ -1,5 +1,8 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Speed(val mps: Double) {
     val kph = mps / 3.6
     val mph = mps / 0.44704

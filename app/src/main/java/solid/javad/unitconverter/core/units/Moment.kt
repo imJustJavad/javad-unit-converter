@@ -1,5 +1,8 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Moment(val second: Double) {
     val milliSecond = second * 1000
     val minute = second / 60

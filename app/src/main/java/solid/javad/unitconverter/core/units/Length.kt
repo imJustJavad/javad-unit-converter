@@ -1,5 +1,8 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 class Length(val metre: Double) {
     val millimetre = metre * 1000
     val centimetre = metre * 100

@@ -1,7 +1,9 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
 import kotlin.math.pow
 
+@Serializable
 class Area(val sMetre: Double) {
     val sMillimetre = sMetre * 1000.0.pow(2.0)
     val sCentimetre = sMetre * 100.0.pow(2.0)

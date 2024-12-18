@@ -1,7 +1,9 @@
 package solid.javad.unitconverter.core.units
 
+import kotlinx.serialization.Serializable
 import java.lang.Math.pow
 
+@Serializable
 class Density(val kgpqm: Double) {
     val gpqmm = kgpqm * 1000 * pow(1000.0, 3.0)
     val kgpl = kgpqm * 1000
