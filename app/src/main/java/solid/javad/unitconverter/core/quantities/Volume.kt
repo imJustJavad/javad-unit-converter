@@ -1,4 +1,4 @@
-package solid.javad.unitconverter.core.units
+package solid.javad.unitconverter.core.quantities
 
 import kotlinx.serialization.Serializable
 import kotlin.math.pow
