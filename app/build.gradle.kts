@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "solid.javad.unitconverter"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "solid.javad.unitconverter"
