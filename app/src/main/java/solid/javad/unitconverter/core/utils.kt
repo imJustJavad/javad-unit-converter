@@ -2,6 +2,7 @@ package solid.javad.unitconverter.core
 
 import solid.javad.unitconverter.core.quantities.Area
 import kotlin.reflect.KClass
+import kotlin.reflect.KFunction
 import kotlin.reflect.full.companionObject
 import kotlin.reflect.full.declaredFunctions
 import kotlin.reflect.full.declaredMemberProperties
@@ -16,7 +17,7 @@ data class Unit<T : Quantity> (
 fun <T : Quantity> getUnits(quantityKClass: KClass<T>, mainUnit: String): List<Unit<T>> {
     val companion = quantityKClass.companionObject!!
 
-    return companion.declaredFunctions.filter { it.name != "serializer" }.map {  function ->
+    return companion.declaredFunctions.filter { it.name != "serializer" }.map<KFunction<*>, Unit<T>> { function ->
         Unit (
             name = function.name,
             toMainUnit = { value ->
@@ -36,7 +37,13 @@ fun <T : Quantity> getUnits(quantityKClass: KClass<T>, mainUnit: String): List<U
                     .call(quantityKClass.constructors.last().call(value)) as Double
             }
         )
-    }
+    }.plus (
+        Unit (
+            name = mainUnit,
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        )
+    )
 }
 
 fun main() {
