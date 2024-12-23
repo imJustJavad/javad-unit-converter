@@ -1,17 +1,29 @@
 package solid.javad.unitconverter.core.quantities
 
-import kotlinx.serialization.Serializable
 import solid.javad.unitconverter.core.Quantity
+import solid.javad.unitconverter.core.Unit
 
-@Serializable
-class Energy(val joule: Double): Quantity {
-    val kiloJoule = joule / 1000
-    val calorie = joule / 4.184
-    val kilocalorie = calorie * 1000
-
-    companion object {
-        fun kiloJoule(kiloJoule: Double) = Energy(kiloJoule * 1000)
-        fun calorie(calorie: Double) = Energy(calorie * 4.184)
-        fun kilocalorie(kilocalorie: Double) = Energy(kilocalorie * 4184)
-    }
+object Energy : Quantity {
+    override val units = listOf(
+        Unit(
+            name = "Joule",
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        ),
+        Unit(
+            name = "Kilojoule",
+            toMainUnit = { it / 1000.0 },
+            fromMainUnit = { it * 1000.0 }
+        ),
+        Unit(
+            name = "Calorie",
+            toMainUnit = { it / 4.184 },
+            fromMainUnit = { it * 4.184 }
+        ),
+        Unit(
+            name = "Kilocalorie",
+            toMainUnit = { it / 4184.0 },
+            fromMainUnit = { it * 4184.0 }
+        )
+    )
 }

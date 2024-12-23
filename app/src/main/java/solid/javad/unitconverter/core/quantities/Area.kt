@@ -1,30 +1,49 @@
 package solid.javad.unitconverter.core.quantities
 
-import kotlinx.serialization.Serializable
 import solid.javad.unitconverter.core.Quantity
-import kotlin.math.pow
+import solid.javad.unitconverter.core.Unit
 
-@Serializable
-class Area(val sMetre: Double): Quantity {
-    val sMillimetre = sMetre * 1000.0.pow(2.0)
-    val sCentimetre = sMetre * 100.0.pow(2.0)
-    val sDecimetre = sMetre * 100.0.pow(2.0)
-    val sKilometre = sMetre * 0.001.pow(2.0)
-
-    val sInch = sMetre / 0.0254.pow(2.0)
-    val sFoot = sMetre / 0.3048.pow(2.0)
-    val sYard = sMetre / 0.9144.pow(2.0)
-    val sMile = sMetre / 1609.344.pow(2.0)
-
-    companion object {
-        fun sMillimetre(sMillimetre: Double) = Area(sMillimetre / 1000.0.pow(2.0))
-        fun sCentimetre(sCentimetre: Double) = Area(sCentimetre / 100.0.pow(2.0))
-        fun sDecimetre(sDecimetre: Double) = Area(sDecimetre / 100.0.pow(2.0))
-        fun sKilometre(sKilometre: Double) = Area(sKilometre / 0.001.pow(2.0))
-
-        fun sInch(sInch: Double) = Area(sInch * 0.0254.pow(2.0))
-        fun sFoot(sFoot: Double) = Area(sFoot / 0.3048.pow(2.0))
-        fun sYard(sYard: Double) = Area(sYard / 0.9144.pow(2.0))
-        fun sMile(sMile: Double) = Area(sMile / 1609.344.pow(2.0))
-    }
+object Area : Quantity {
+    override val units = listOf(
+        Unit(
+            name = "Square Millimetre",
+            toMainUnit = { it / (1000.0 * 1000.0) },
+            fromMainUnit = { it * (1000.0 * 1000.0) }
+        ),
+        Unit(
+            name = "Square Centimetre",
+            toMainUnit = { it / (100.0 * 100.0) },
+            fromMainUnit = { it * (100.0 * 100.0) }
+        ),
+        Unit(
+            name = "Square Decimetre",
+            toMainUnit = { it / (10.0 * 10.0) },
+            fromMainUnit = { it * (10.0 * 10.0) }
+        ),
+        Unit(
+            name = "Square Kilometre",
+            toMainUnit = { it / (0.001 * 0.001) },
+            fromMainUnit = { it * (0.001 * 0.001) }
+        ),
+        Unit(
+            name = "Square Inch",
+            toMainUnit = { it * (0.0254 * 0.0254) },
+            fromMainUnit = { it / (0.0254 * 0.0254) }
+        ),
+        Unit(
+            name = "Square Foot",
+            toMainUnit = { it * (0.3048 * 0.3048) },
+            fromMainUnit = { it / (0.3048 * 0.3048) }
+        ),
+        Unit(
+            name = "Square Yard",
+            toMainUnit = { it * (0.9144 * 0.9144) },
+            fromMainUnit = { it / (0.9144 * 0.9144) }
+        ),
+        Unit(
+            name = "Square Mile",
+            toMainUnit = { it * (1609.344 * 1609.344) },
+            fromMainUnit = { it / (1609.344 * 1609.344) }
+        )
+    )
 }

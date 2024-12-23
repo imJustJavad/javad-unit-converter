@@ -1,29 +1,54 @@
 package solid.javad.unitconverter.core.quantities
 
-import kotlinx.serialization.Serializable
 import solid.javad.unitconverter.core.Quantity
+import solid.javad.unitconverter.core.Unit
 
-@Serializable
-class Length(val metre: Double): Quantity {
-    val millimetre = metre * 1000
-    val centimetre = metre * 100
-    val decimetre = metre * 100
-    val kilometre = metre * 0.001
-
-    val inch = metre / 0.0254
-    val foot = metre / 0.3048
-    val yard = metre / 0.9144
-    val mile = metre / 1609.344
-
-    companion object {
-        fun millimetre(millimetre: Double) = Length(millimetre / 1000)
-        fun centimetre(centimetre: Double) = Length(centimetre / 100)
-        fun decimetre(decimetre: Double) = Length(decimetre / 100)
-        fun kilometre(kilometre: Double) = Length(kilometre / 0.001)
-
-        fun inch(inch: Double) = Length(inch * 0.0254)
-        fun foot(mile: Double) = Length(mile / 0.3048)
-        fun yard(yard: Double) = Length(yard / 0.9144)
-        fun mile(mile: Double) = Length(mile / 1609.344)
-    }
+object Length : Quantity {
+    override val units = listOf(
+        Unit(
+            name = "Metre",
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        ),
+        Unit(
+            name = "Millimetre",
+            toMainUnit = { it / 1000.0 },
+            fromMainUnit = { it * 1000.0 }
+        ),
+        Unit(
+            name = "Centimetre",
+            toMainUnit = { it / 100.0 },
+            fromMainUnit = { it * 100.0 }
+        ),
+        Unit(
+            name = "Decimetre",
+            toMainUnit = { it / 10.0 },
+            fromMainUnit = { it * 10.0 }
+        ),
+        Unit(
+            name = "Kilometre",
+            toMainUnit = { it / 0.001 },
+            fromMainUnit = { it * 0.001 }
+        ),
+        Unit(
+            name = "Inch",
+            toMainUnit = { it / 0.0254 },
+            fromMainUnit = { it * 0.0254 }
+        ),
+        Unit(
+            name = "Foot",
+            toMainUnit = { it / 0.3048 },
+            fromMainUnit = { it * 0.3048 }
+        ),
+        Unit(
+            name = "Yard",
+            toMainUnit = { it / 0.9144 },
+            fromMainUnit = { it * 0.9144 }
+        ),
+        Unit(
+            name = "Mile",
+            toMainUnit = { it / 1609.344 },
+            fromMainUnit = { it * 1609.344 }
+        )
+    )
 }

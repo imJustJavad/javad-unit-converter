@@ -1,25 +1,49 @@
 package solid.javad.unitconverter.core.quantities
 
-import kotlinx.serialization.Serializable
 import solid.javad.unitconverter.core.Quantity
+import solid.javad.unitconverter.core.Unit
 
-@Serializable
-class Moment(val second: Double): Quantity {
-    val milliSecond = second * 1000
-    val minute = second / 60
-    val hour = minute / 60
-    val day = hour / 24
-    val week = day / 7
-    val month = day / 30
-    val year = day / 365
-
-    companion object {
-        fun milliSecond(milliSecond: Double) = Moment(milliSecond / 1000)
-        fun minute(minute: Double) = Moment(minute * 60)
-        fun hour(hour: Double) = minute(hour * 60)
-        fun day(day: Double) = hour(day * 24)
-        fun week(week: Double) = day(week * 7)
-        fun month(month: Double) = day(month * 30)
-        fun year(year: Double) = day(year * 365)
-    }
+object Moment : Quantity {
+    override val units = listOf(
+        Unit(
+            name = "Second",
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        ),
+        Unit(
+            name = "Millisecond",
+            toMainUnit = { it / 1000.0 },
+            fromMainUnit = { it * 1000.0 }
+        ),
+        Unit(
+            name = "Minute",
+            toMainUnit = { it * 60.0 },
+            fromMainUnit = { it / 60.0 }
+        ),
+        Unit(
+            name = "Hour",
+            toMainUnit = { it * 3600.0 },
+            fromMainUnit = { it / 3600.0 }
+        ),
+        Unit(
+            name = "Day",
+            toMainUnit = { it * 86400.0 },
+            fromMainUnit = { it / 86400.0 }
+        ),
+        Unit(
+            name = "Week",
+            toMainUnit = { it * 604800.0 },
+            fromMainUnit = { it / 604800.0 }
+        ),
+        Unit(
+            name = "Month (30 Days)",
+            toMainUnit = { it * 2592000.0 },
+            fromMainUnit = { it / 2592000.0 }
+        ),
+        Unit(
+            name = "Year (365 Days)",
+            toMainUnit = { it * 31536000.0 },
+            fromMainUnit = { it / 31536000.0 }
+        )
+    )
 }
