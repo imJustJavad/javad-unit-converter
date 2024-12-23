@@ -9,11 +9,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.ArrowForward
 import androidx.compose.material.icons.outlined.ArrowDropDown
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -32,9 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import solid.javad.unitconverter.core.Quantity
-import solid.javad.unitconverter.core.getUnits
-import solid.javad.unitconverter.core.quantities.Area
+import solid.javad.unitconverter.core.QuantityType
 import solid.javad.unitconverter.ui.navigation.Route
 import solid.javad.unitconverter.ui.theme.Typography
 import solid.javad.unitconverter.core.Unit as QuantityUnit
@@ -44,14 +40,14 @@ fun ConvertScreen(
     modifier: Modifier = Modifier,
     route: Route.ConvertScreen
 ) {
-    val units = getUnits(route.quantity::class, "sMetre")
+    val units = route.quantityType.getQuantity().units
 
     Column(
         modifier = modifier.padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        var fromUnit: QuantityUnit<out Quantity> by remember { mutableStateOf(units.first()) }
-        var toUnit: QuantityUnit<out Quantity> by remember { mutableStateOf(units.first()) }
+        var fromUnit by remember { mutableStateOf(units.first()) }
+        var toUnit by remember { mutableStateOf(units.first()) }
         var inputValue by remember { mutableDoubleStateOf(1.0) }
 
         UnitSpinner(
@@ -105,8 +101,8 @@ fun ConvertScreen(
 @Composable
 private fun calculateConvertedValue(
     value: Double,
-    from: QuantityUnit<out Quantity>,
-    to: QuantityUnit<out Quantity>
+    from: QuantityUnit,
+    to: QuantityUnit
 ): String {
     return try {
         to.fromMainUnit(from.toMainUnit(value)).toPlainString() // Safe conversion and display
@@ -121,11 +117,11 @@ private fun Double.toPlainString(): String {
 
 
 @Composable
-fun <T : Quantity> UnitSpinner(
+fun UnitSpinner(
     modifier: Modifier = Modifier,
-    list: List<QuantityUnit<out T>>,
-    selected: QuantityUnit<out Quantity>,
-    onSelectionChanged: (unit: QuantityUnit<out T>) -> Unit
+    list: List<QuantityUnit>,
+    selected: QuantityUnit,
+    onSelectionChanged: (unit: QuantityUnit) -> Unit
 ) {
     var expanded by remember { mutableStateOf(false) }
 
@@ -181,5 +177,8 @@ fun <T : Quantity> UnitSpinner(
 @Preview
 @Composable
 private fun PreviewConvertScreen() {
-    ConvertScreen(modifier = Modifier.fillMaxSize(), Route.ConvertScreen(Area(1.0)))
+    ConvertScreen (
+        modifier = Modifier.fillMaxSize(),
+        Route.ConvertScreen(QuantityType.LENGTH)
+    )
 }
