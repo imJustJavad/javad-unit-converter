@@ -14,47 +14,47 @@ import solid.javad.unitconverter.core.quantities.Volume
 
 val quantityItems = listOf (
     QuantityItem(
-        quantity = Length(1.0),
+        quantity = Length,
         name = "Lnegth",
         resource = R.drawable.length
     ),
     QuantityItem(
-        quantity = Area(1.0),
+        quantity = Area,
         name = "Area",
         resource = R.drawable.area
     ),
     QuantityItem(
-        quantity = Volume(1.0),
+        quantity = Volume,
         name = "Volume",
         resource = R.drawable.volume
     ),
     QuantityItem(
-        quantity = Energy(1.0),
+        quantity = Energy,
         name = "Energy",
         resource = R.drawable.energy
     ),
     QuantityItem(
-        quantity = Force(1.0),
+        quantity = Force,
         name = "Force",
         resource = R.drawable.force
     ),
     QuantityItem(
-        quantity = Mass(1.0),
+        quantity = Mass,
         name = "Mass",
         resource = R.drawable.mass
     ),
     QuantityItem(
-        quantity = Density(1.0),
+        quantity = Density,
         name = "Density",
         resource = R.drawable.density
     ),
     QuantityItem(
-        quantity = Speed(1.0),
+        quantity = Speed,
         name = "Speed",
         resource = R.drawable.speed
     ),
     QuantityItem(
-        quantity = Moment(1.0),
+        quantity = Moment,
         name = "Moment",
         resource = R.drawable.moment
     )
