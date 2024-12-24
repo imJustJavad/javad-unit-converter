@@ -1,67 +1,58 @@
 package solid.javad.unitconverter.ui.screen
 
-import solid.javad.unitconverter.core.Quantity
-import solid.javad.unitconverter.core.quantities.Area
 import solid.javad.unitconverter.R
-import solid.javad.unitconverter.core.quantities.Density
-import solid.javad.unitconverter.core.quantities.Energy
-import solid.javad.unitconverter.core.quantities.Force
-import solid.javad.unitconverter.core.quantities.Length
-import solid.javad.unitconverter.core.quantities.Mass
-import solid.javad.unitconverter.core.quantities.Moment
-import solid.javad.unitconverter.core.quantities.Speed
-import solid.javad.unitconverter.core.quantities.Volume
+import solid.javad.unitconverter.core.QuantityType
 
 val quantityItems = listOf (
     QuantityItem(
-        quantity = Length,
+        quantityType = QuantityType.LENGTH,
         name = "Lnegth",
         resource = R.drawable.length
     ),
     QuantityItem(
-        quantity = Area,
+        quantityType = QuantityType.AREA,
         name = "Area",
         resource = R.drawable.area
     ),
     QuantityItem(
-        quantity = Volume,
+        quantityType = QuantityType.VOLUME,
         name = "Volume",
         resource = R.drawable.volume
     ),
     QuantityItem(
-        quantity = Energy,
+        quantityType = QuantityType.ENERGY,
         name = "Energy",
         resource = R.drawable.energy
     ),
     QuantityItem(
-        quantity = Force,
+        quantityType = QuantityType.FORCE,
         name = "Force",
         resource = R.drawable.force
     ),
     QuantityItem(
-        quantity = Mass,
+        quantityType = QuantityType.MASS,
         name = "Mass",
         resource = R.drawable.mass
     ),
     QuantityItem(
-        quantity = Density,
+        quantityType = QuantityType.DENSITY,
         name = "Density",
         resource = R.drawable.density
     ),
     QuantityItem(
-        quantity = Speed,
+        quantityType = QuantityType.SPEED,
         name = "Speed",
         resource = R.drawable.speed
     ),
     QuantityItem(
-        quantity = Moment,
+        quantityType = QuantityType.MOMENT,
         name = "Moment",
         resource = R.drawable.moment
     )
 )
 
 class QuantityItem (
-    val quantity: Quantity,
+    val quantityType: QuantityType,
     val name: String,
     val resource: Int
 )
