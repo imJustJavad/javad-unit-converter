@@ -7,6 +7,11 @@ import kotlin.math.pow
 object Volume : Quantity {
     override val units = listOf(
         Unit(
+            "Metre Cubed",
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        ),
+        Unit(
             "Millimetre Cubed",
             toMainUnit = { it / 1000.0.pow(3.0) },
             fromMainUnit = { it * 1000.0.pow(3.0) }
