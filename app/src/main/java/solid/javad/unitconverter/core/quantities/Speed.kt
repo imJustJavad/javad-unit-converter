@@ -6,6 +6,11 @@ import solid.javad.unitconverter.core.Unit
 object Speed : Quantity {
     override val units = listOf(
         Unit(
+          "Metre per Second",
+            toMainUnit = { it },
+            fromMainUnit = { it }
+        ),
+        Unit(
             "Kilometre per Hour",
             toMainUnit = { it / 3.6 },
             fromMainUnit = { it * 3.6 }
