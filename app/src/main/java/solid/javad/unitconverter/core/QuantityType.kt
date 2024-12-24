@@ -5,6 +5,7 @@ import solid.javad.unitconverter.core.quantities.Density
 import solid.javad.unitconverter.core.quantities.Energy
 import solid.javad.unitconverter.core.quantities.Force
 import solid.javad.unitconverter.core.quantities.Length
+import solid.javad.unitconverter.core.quantities.Mass
 import solid.javad.unitconverter.core.quantities.Moment
 import solid.javad.unitconverter.core.quantities.Speed
 import solid.javad.unitconverter.core.quantities.Volume
@@ -15,6 +16,7 @@ enum class QuantityType {
     ENERGY,
     FORCE,
     LENGTH,
+    MASS,
     MOMENT,
     SPEED,
     VOLUME;
@@ -26,6 +28,7 @@ enum class QuantityType {
             ENERGY -> Energy
             FORCE -> Force
             LENGTH -> Length
+            MASS -> Mass
             MOMENT -> Moment
             SPEED -> Speed
             VOLUME -> Volume
