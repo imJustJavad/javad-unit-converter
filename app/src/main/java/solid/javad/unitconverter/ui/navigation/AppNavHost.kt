@@ -13,7 +13,13 @@ import solid.javad.unitconverter.ui.screen.MainScreen
 fun AppNavHost(modifier: Modifier = Modifier, navController: NavHostController) {
     NavHost(navController, startDestination = Route.MainScreen) {
         composable<Route.MainScreen> { backStackEntry ->
-            MainScreen(modifier, backStackEntry.toRoute())
+            MainScreen (
+                modifier = modifier,
+                route = backStackEntry.toRoute(),
+                onQuantitySelected = {
+                    navController.navigate(Route.ConvertScreen(it.quantityType))
+                }
+            )
         }
 
         composable<Route.ConvertScreen> { backStackEntry ->

@@ -29,7 +29,11 @@ import solid.javad.unitconverter.ui.theme.Typography
 import solid.javad.unitconverter.ui.theme.UnitConverterTheme
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier, route: Route.MainScreen) {
+fun MainScreen (
+    modifier: Modifier = Modifier,
+    route: Route.MainScreen,
+    onQuantitySelected: (QuantityItem) -> Unit
+) {
     val itemsSize = quantityItems.size
 
     LazyVerticalGrid (
@@ -45,7 +49,7 @@ fun MainScreen(modifier: Modifier = Modifier, route: Route.MainScreen) {
                     .fillMaxWidth()
                     .padding(6.dp),
                 item = quantityItems[i],
-                onClick = { TODO("Not implemented yet") }
+                onClick = { onQuantitySelected(quantityItems[i]) }
             )
         }
 
@@ -56,7 +60,7 @@ fun MainScreen(modifier: Modifier = Modifier, route: Route.MainScreen) {
                         .fillMaxWidth()
                         .padding(6.dp),
                     item = quantityItems.last(),
-                    onClick = { TODO("Not implemented yet") }
+                    onClick = { onQuantitySelected(quantityItems.last()) }
                 )
             }
         }
@@ -95,7 +99,7 @@ private fun QuantityItem(modifier: Modifier = Modifier, item: QuantityItem, onCl
 private fun Preview() {
     UnitConverterTheme {
         Surface (Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-            MainScreen(Modifier.fillMaxSize(), Route.MainScreen)
+            MainScreen(Modifier.fillMaxSize(), Route.MainScreen, {})
         }
     }
 }
