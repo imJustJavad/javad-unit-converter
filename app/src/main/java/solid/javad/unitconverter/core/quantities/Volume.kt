@@ -18,8 +18,8 @@ object Volume : Quantity {
         ),
         Unit(
             "Decimetre Cubed",
-            toMainUnit = { it / 100.0.pow(3.0) },
-            fromMainUnit = { it * 100.0.pow(3.0) }
+            toMainUnit = { it / 10.0.pow(3.0) },
+            fromMainUnit = { it * 10.0.pow(3.0) }
         ),
         Unit(
             "Kilometre Cubed",
