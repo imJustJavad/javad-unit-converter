@@ -25,11 +25,11 @@ This is an Android application built with **Kotlin** and **Jetpack Compose**, de
 
 ## Screenshots
 
-### Main Screen
-![Main Screen](images/main_screen.jpg)
-
-### Conversion Screen
-![Conversion Screen](images/convert_screen.jpg)
+### Main Screen and Convert Screen
+<div style="display: flex; justify-content: space-around;">
+  <img src="images/main_screen.png" alt="Main Screen" width="300"/>
+  <img src="images/convert_screen.png" alt="Conversion Screen" width="300"/>
+</div>
 
 ## Getting Started
 
@@ -39,4 +39,4 @@ This is an Android application built with **Kotlin** and **Jetpack Compose**, de
 
 ### Clone Repository
 ```bash
-git clone https://github.com/imjustjavad/unit-converter.git
+git clone https://github.com/imjustjavad/javad-unit-converter.git
