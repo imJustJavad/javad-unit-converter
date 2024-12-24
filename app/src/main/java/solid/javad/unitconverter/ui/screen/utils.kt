@@ -6,7 +6,7 @@ import solid.javad.unitconverter.core.QuantityType
 val quantityItems = listOf (
     QuantityItem(
         quantityType = QuantityType.LENGTH,
-        name = "Lnegth",
+        name = "Length",
         resource = R.drawable.length
     ),
     QuantityItem(
