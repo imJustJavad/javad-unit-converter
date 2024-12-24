@@ -27,8 +27,8 @@ This is an Android application built with **Kotlin** and **Jetpack Compose**, de
 
 ### Main Screen and Convert Screen
 <div style="display: flex; justify-content: space-around;">
-  <img src="images/main_screen.png" alt="Main Screen" width="300"/>
-  <img src="images/convert_screen.png" alt="Conversion Screen" width="300"/>
+  <img src="images/main_screen.jpg" alt="Main Screen" width="300"/>
+  <img src="images/convert_screen.jpg" alt="Conversion Screen" width="300"/>
 </div>
 
 ## Getting Started
