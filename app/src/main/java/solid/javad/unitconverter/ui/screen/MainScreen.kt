@@ -73,8 +73,8 @@ private fun QuantityItem(modifier: Modifier = Modifier, item: QuantityItem, onCl
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(vertical = 24.dp)
-                .clickable { onClick() },
+                .clickable { onClick() }
+                .padding(vertical = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
